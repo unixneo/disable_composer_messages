@@ -17,7 +17,7 @@ after_initialize do
     requires_login
 
     def index
-      if !Sitesetting.disable_composer_messages?
+      return if Sitesetting.disable_composer_messages?
         finder = ComposerMessagesFinder.new(current_user, params.slice(:composer_action, :topic_id, :post_id))
         json = { composer_messages: [finder.find].compact }
 
@@ -28,7 +28,6 @@ after_initialize do
           end
         end
           render_json_dump(json, rest_serializer: true)
-      end
     end
   end
 end          
