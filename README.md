@@ -1,9 +1,11 @@
 ## discourse-disable-composer-messages
 
-Plugin does not yet work using Ruby, so in the meantime use CSS in themes:
+Plugin to disable composer messages instead of using CSS to hide:
+
+### CSS (FYI ONLY)
 
 ```css
-.composer-popup, .composer-popup-container {
+.composer-popup {
     display: none !important;
 }
 ```
