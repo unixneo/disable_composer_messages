@@ -2,7 +2,7 @@
 
 # name: discourse-disable-composer-messages
 # about: Disable composer messages
-# version: 0.0.2
+# version: 0.0.21
 # date: 9 March 2021
 # authors: Neo
 # url: https://github.com/unixneo/discourse-disable-composer-messages
