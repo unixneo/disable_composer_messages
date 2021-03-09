@@ -14,7 +14,7 @@ SimilarTopicsController.class_eval do
     end
   
     def index
-      return render json: [] if SiteSetting.disable_composer_messages?
+      return render json: [] if SiteSetting.disable_composer_messages? && SiteSetting.disable_similar_topic_messages?
       title = params.require(:title)
       raw = params[:raw]
   

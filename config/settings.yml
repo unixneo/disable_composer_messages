@@ -1,2 +1,8 @@
 plugins:
   disable_composer_messages: false
+  disable_similar_topic_messages: true
+  disable_many_reply_messages: true
+  disable_check_sequential_replies: true
+  disable_check_dominating_topic: true
+  disable_check_get_a_room: true
+  disable_reviving_old_topic: true

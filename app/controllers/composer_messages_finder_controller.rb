@@ -56,7 +56,7 @@ ComposerMessagesFinder.class_eval do
 
     # New users have a limited number of replies in a topic
     def check_new_user_many_replies
-      return if SiteSetting.disable_composer_messages?
+      return if SiteSetting.disable_composer_messages?  && SiteSetting.disable_many_reply_messages? 
       return unless replying? && @user.posted_too_much_in_topic?(@details[:topic_id])
 
       {
@@ -94,7 +94,7 @@ ComposerMessagesFinder.class_eval do
 
     # Is a user replying too much in succession?
     def check_sequential_replies
-      return if SiteSetting.disable_composer_messages?
+      return if SiteSetting.disable_composer_messages?  && SiteSetting.disable_check_sequential_replies?
       return unless educate_reply?(:notified_about_sequential_replies)
 
       # Count the posts made by this user in the last day
@@ -124,7 +124,7 @@ ComposerMessagesFinder.class_eval do
     end
 
     def check_dominating_topic
-      return if SiteSetting.disable_composer_messages?
+      return if SiteSetting.disable_composer_messages?  && SiteSetting.disable_check_dominating_topic?
       return unless educate_reply?(:notified_about_dominating_topic)
 
       return if @topic.blank? ||
@@ -152,7 +152,7 @@ ComposerMessagesFinder.class_eval do
     end
 
     def check_get_a_room(min_users_posted: 5)
-      return if SiteSetting.disable_composer_messages?
+      return if SiteSetting.disable_composer_messages?  && SiteSetting.disable_check_get_a_room?
       return unless educate_reply?(:notified_about_get_a_room)
       return unless @details[:post_id].present?
 
@@ -193,7 +193,7 @@ ComposerMessagesFinder.class_eval do
     end
 
     def check_reviving_old_topic
-      return if SiteSetting.disable_composer_messages?
+      return if SiteSetting.disable_composer_messages?  && SiteSetting.disable_reviving_old_topic?
       return unless replying?
       return if @topic.nil? ||
                 SiteSetting.warn_reviving_old_topic_age < 1 ||
