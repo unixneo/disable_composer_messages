@@ -2,7 +2,7 @@
 
 # name: discourse-disable-composer-messages
 # about: Disable composer messages
-# version: 0.0.12
+# version: 0.0.13
 # date: 9 March 2021
 # authors: Neo
 # url: https://github.com/unixneo/discourse-disable-composer-messages
@@ -17,11 +17,14 @@ after_initialize do
     requires_login
 
     def index
-      return if Sitesetting.disable_composer_messages?
         finder = ComposerMessagesFinder.new(current_user, params.slice(:composer_action, :topic_id, :post_id))
-        json = { composer_messages: [finder.find].compact }
+        if Sitesetting.disable_composer_messages?
+          json = { composer_messages: "" }
+        else
+          json = { composer_messages: [finder.find].compact }
+        end
 
-        if params[:topic_id].present?
+        if params[:topic_id].present?  && !Sitesetting.disable_composer_messages?
           topic = Topic.where(id: params[:topic_id]).first
           if guardian.can_see?(topic)
             json[:extras] = { duplicate_lookup: TopicLink.duplicate_lookup(topic) }
