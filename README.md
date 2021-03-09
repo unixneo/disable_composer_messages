@@ -8,12 +8,6 @@ https://github.com/unixneo/discourse-disable-composer-messages
 
 https://community.unix.com/t/discourse-plugin-disable-composer-messages/382007
 
-Plugin to disable composer messages instead of using CSS to hide:
+Plugin to disable composer messages (selectively or all).
 
-### CSS (FYI ONLY)
 
-```css
-.composer-popup {
-    display: none !important;
-}
-```
