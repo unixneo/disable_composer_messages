@@ -2,8 +2,8 @@ en:
   site_settings:
     disable_composer_messages:  "Disable composer messages"
     disable_similar_topic_messages: "Disable similar topic messages"
-    disable_many_reply_messages: "Disable new user many reply messages"
+    disable_many_reply_messages: "Disable new user 'many reply' messages"
     disable_check_sequential_replies: "Disable check for sequential replies"
     disable_check_dominating_topic: "Disable check for dominating topics"
-    disable_check_get_a_room: "Diable check get a room"
-    disable_reviving_old_topic: "Disable check for reviving old topic"
+    disable_check_get_a_room: "Disable the check 'get a room'"
+    disable_reviving_old_topic: "Disable check for reviving old topics"
