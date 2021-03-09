@@ -1,0 +1,1 @@
+## discourse-disable-composer-messages
